@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayı Tahmin Oyunu</title>
+    <style>
+        body{
+            background-color: rgb(136, 224, 143);
+        }
+    </style>
+</head>
+
+<body>
+    
+    <center>
+        <h1>Sayı Tahmin Oyunu</h1>
+        <p>Ne kadar az tahmin hakkı girerseniz o kadar iyidir.</p>
+        <p>Rastgele tutulan sayı 0 ile 100 arasıdır.</p>
+
+        <label for="sayı">Tahmininiz olan sayıyı giriniz:</label> 
+        <!-- 
+            for özelliği, bir label etiketini bir form elemanıyla ilişkilendirmek için kullanılır. Bu özellik, 
+            label etiketinin içindeki metni tıklandığında veya odaklandığında, ilişkilendirilmiş form elemanının etkileşimini tetikler.
+
+            Örneğin:
+
+            html
+            Copy code
+            <label for="username">Kullanıcı Adı:</label>
+            <input type="text" id="username" name="username">
+            Bu örnekte, for="username" ifadesi, label etiketini id değeri username olan bir form elemanıyla ilişkilendirir. 
+            Bu durumda, kullanıcı "Kullanıcı Adı:" metnini tıkladığında veya odaklandığında, tarayıcı otomatik olarak id="username" olan input alanına odaklanır.
+
+            Bu özellik, özellikle form elemanlarına daha iyi erişim ve kullanıcı deneyimi sağlamak için önemlidir. 
+            Ayrıca, bu ilişkilendirme sayesinde ekran okuyucular gibi erişilebilirlik araçları, kullanıcıya doğru bilgi sağlayabilir.
+         -->
+
+        <input type="text" id="sayı">
+
+        <!-- input etiketinin type özelliği, input alanının hangi türde veri alacağını belirler. Bu özellik, 
+            kullanıcıya ne tür bir giriş yapması gerektiğini gösterir ve tarayıcılara hangi kontrollerin kullanılacağını söyler. 
+            İşte bazı yaygın type değerleri:
+
+        text: Metin girişi almak için kullanılır. Kullanıcı herhangi bir metin girebilir.
+
+        html
+        Copy code
+        <input type="text" name="username">
+        password: Şifre girişi almak için kullanılır. Yazılan şifre genellikle ekran üzerinde gizlenir.
+
+        html
+        Copy code
+        <input type="password" name="password">
+        number: Sayı girişi almak için kullanılır. Sadece sayısal değerler kabul edilir.
+
+        html
+        Copy code
+        <input type="number" name="age">
+        email: E-posta adresi girişi almak için kullanılır. Tarayıcı, girilen metni e-posta formatında olup olmadığını kontrol eder.
+
+        html
+        Copy code
+        <input type="email" name="email">
+        date: Tarih girişi almak için kullanılır. Tarayıcı, kullanıcıya bir takvim seçici sunabilir.
+
+        html
+        Copy code
+        <input type="date" name="birthdate">
+
+        Bu örnekler, type özelliğinin farklı veri türleri ve giriş yöntemleri için nasıl kullanılabileceğini gösterir. 
+        Bu özellik, web uygulamalarında kullanıcı girişi almak için oldukça esnek bir şekilde kullanılabilir. -->
+
+
+
+        <button onclick = "tahminYap()">Tahmin Yap</button>
+        
+        
+        <p id="demo2"></p>
+    </center>
+
+    <script src="Sayı Tahmin Oyunu.js"></script>
+</body>
+
+</html>

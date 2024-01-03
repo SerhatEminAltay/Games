@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savaş Oyunu</title>
+    <style>
+    body{
+        background-color: rgb(74, 179, 211);
+    }
+    .resim-container {
+    position: absolute;
+    right: 0px;   /* sağdan kaç px boşluk bıraktığımı belirtiyor.  */
+    top: 430px;  /* yukarıdan kaç px boşluk bıraktığımı belirtiyor.  */
+    }
+    .resim-container1 {
+    position: absolute;
+    left: 0px;     /* soldan kaç px boşluk bıraktığımı belirtiyor.  */
+    top: 430px;   /* yukarıdan kaç px boşluk bıraktığımı belirtiyor.  */
+    }
+    </style>
+    
+</head>
+
+<body>
+    <center>
+        <h1>Savaş Oyunu</h1>
+    </center>
+
+    <h2>Kurallar ve Oyunla Alakalı Bilgiler</h2>
+        <p>1) Her kullanıcı 100 can ve 100 mana ile oyuna başlar.</p>
+        <p>2) Oyuna ilk kimin başlayacağını kararlaştırmak için sayfanın ortasında duran "Oyuna ilk kimin başlayacağını belirlemek için tıklayın." butonuna tıklayın.
+            Tıkladığınızda yazı tura oyunu açılacak oradan ilk kimin başlayacağını kararlaştırabilirsiniz. 
+        </p>
+        <p>3) Özel saldırı ve normal saldırı seçenekleri vardır.</p>
+        <p>4) Özel saldırı 40 ile 70 arası rastgele hasar vururken, normal saldırı 20 ile 30 arası rastgele hasar vurur.</p>
+        <p>5) Özel saldırı yapmak için 75 manaya ihtiyacınız vardır.</p>
+        <p>6) Her kullanıcının 1 adet can ve 1 adet mana iksiri vardır.</p>
+        <p>7) Can iksiri 50 can sağlar. Mana iksiri 50 mana sağlar.</p>
+        <br>
+
+        <!-- burası sol taraf için div. -->
+        <div class="resim-container1">
+            <label for="isim1">Kullanıcı ad giriniz:</label>    <!-- bu labellar ile kullanıcı isim alınıyor ve kaydediliyor daha değiştirilmiyor.   -->
+            <input type="text" id="isim1">
+            <button onclick="isim1()">Kullanıcı ad olarak kabul et</button>
+            <br>
+            <img src="Resimler/kalp resmi.PNG" alt="Maalesef Resim Bulunamadı." > <!-- Burada can göstergesi için fotoğraf koydum.-->
+            <span id="demo4">Canınız : 100 ve Can iksiri hakkınız : 1</span> <!-- burada <p> </p> kullanmadım span kullandım. çünkü p alttan üstten boşluk bırakıyor ve kötü gözüküyor.-->
+            <br>
+            <img src="Resimler/mana resmi.PNG" alt="Maalesef Resim Bulunamadı." > <!-- Burada mana göstergesi için fotoğraf koydum.-->
+            <span id="demo5">Mananız : 100 ve Mana iksiri hakkınız : 1</span> <!-- burada <p> </p> kullanmadım span kullandım. çünkü p alttan üstten boşluk bırakıyor ve kötü gözüküyor.-->
+            <br>
+            <img src="Resimler/can potu.PNG" alt="Maalesef Resim Bulunamadı." onclick="Canbas1(50)" > <!-- Burada tıklanabilir fotoğraf koydum. tıklandığında 50 can sağlıyor.-->
+            <span>:Can iksiri. 50 Can kazanmak için tıkla.</span> <!-- burada <p> </p> kullanmadım span kullandım. çünkü p alttan üstten boşluk bırakıyor ve kötü gözüküyor.-->
+            <br>
+            <img src="Resimler/mana potu.PNG" alt="Maalesef Resim Bulunamadı." onclick="Manabas1(50)"> <!-- Burada tıklanabilir fotoğraf koydum. tıklandığında 50 mana sağlıyor.-->
+            <span>:Mana iksiri. 50 Mana kazanmak için tıkla.</span> <!-- burada <p> </p> kullanmadım span kullandım. çünkü p alttan üstten boşluk bırakıyor ve kötü gözüküyor.-->
+            <br>
+            <img src="Resimler/kılıç resim.jpg" alt="Maalesef Resim Bulunamadı." onclick="saldır1()" > <!-- Burada tıklanabilir fotoğraf koydum. tıklandığında saldırı yapıyor.-->
+            <span>:Normal saldırı. Hasar vermek için tıkla.</span> <!-- burada <p> </p> kullanmadım span kullandım. çünkü p alttan üstten boşluk bırakıyor ve kötü gözüküyor.-->
+            <br>
+            <img src="Resimler/özel kılıç.jpg" alt="Maalesef Resim Bulunamadı." onclick="özelSaldır1()" > <!-- Burada tıklanabilir fotoğraf koydum. tıklandığında özel saldırı yapıyor.-->
+            <span>:Özel saldırı. Daha fazla hasar vermek için tıkla.</span> <!-- burada <p> </p> kullanmadım span kullandım. çünkü p alttan üstten boşluk bırakıyor ve kötü gözüküyor.-->
+            <br>
+            <p id="demo3"></p>
+        </div>
+    
+        <!-- burası sağ taraf için div. -->
+        <div class="resim-container">
+            <label for="isim2">Kullanıcı ad giriniz:</label>             <!-- bu labellar ile kullanıcı isim alınıyor ve kaydediliyor daha değiştirilmiyor.   -->
+            <input type="text" id="isim2">
+            <button onclick="isim2()">Kullanıcı ad olarak kabul et</button>
+            <br>
+            <img src="Resimler/kalp resmi.PNG" alt="Maalesef Resim Bulunamadı."> <!-- Burada can göstergesi için fotoğraf koydum.-->
+            <span id="demo6">Canınız : 100 ve Can iksiri hakkınız : 1</span> <!-- burada <p> </p> kullanmadım span kullandım. çünkü p alttan üstten boşluk bırakıyor ve kötü gözüküyor.-->
+            <br>
+            <img src="Resimler/mana resmi.PNG" alt="Maalesef Resim Bulunamadı."> <!-- Burada mana göstergesi için fotoğraf koydum.-->
+            <span id="demo7">Mananız : 100 ve Mana iksiri hakkınız : 1</span>  <!-- burada <p> </p> kullanmadım span kullandım. çünkü p alttan üstten boşluk bırakıyor ve kötü gözüküyor.-->
+            <br>
+            <img src="Resimler/can potu.PNG" alt="Maalesef Resim Bulunamadı." onclick="Canbas2(50)" > <!-- Burada tıklanabilir fotoğraf koydum. tıklandığında 50 can sağlıyor.-->
+            <span>:Can iksiri. 50 Can kazanmak için tıkla.</span> <!-- burada <p> </p> kullanmadım span kullandım. çünkü p alttan üstten boşluk bırakıyor ve kötü gözüküyor.-->
+            <br>
+            <img src="Resimler/mana potu.PNG" alt="Maalesef Resim Bulunamadı." onclick="Manabas2(50)" >  <!-- Burada tıklanabilir fotoğraf koydum. tıklandığında 50 mana sağlıyor.-->
+            <span>:Mana iksiri. 50 Mana kazanmak için tıkla.</span> <!-- burada <p> </p> kullanmadım span kullandım. çünkü p alttan üstten boşluk bırakıyor ve kötü gözüküyor.-->
+            <br>
+            <img src="Resimler/kılıç resim.jpg" alt="Maalesef Resim Bulunamadı." onclick="saldır2()" > <!-- Burada tıklanabilir fotoğraf koydum. tıklandığında saldırı yapıyor.-->
+            <span>:Normal saldırı. Hasar vermek için tıkla.</span> <!-- burada <p> </p> kullanmadım span kullandım. çünkü p alttan üstten boşluk bırakıyor ve kötü gözüküyor.-->
+            <br>
+            <img src="Resimler/özel kılıç.jpg" alt="Maalesef Resim Bulunamadı." onclick="özelSaldır2()" > <!-- Burada tıklanabilir fotoğraf koydum. tıklandığında özel saldırı yapıyor.-->
+            <span>:Özel saldırı. Daha fazla hasar vermek için tıkla.</span> <!-- burada <p> </p> kullanmadım span kullandım. çünkü p alttan üstten boşluk bırakıyor ve kötü gözüküyor.-->
+            <br>
+        </div>
+        <center>
+            <button onclick='window.open("Yazı Tura.html")'>Oyuna ilk kimin başlayacağını belirlemek için tıklayın</button>
+        </center>
+
+    <script src="Savaş Oyunu.js"></script>
+</body>
+
+</html>
